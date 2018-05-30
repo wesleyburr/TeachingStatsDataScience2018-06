@@ -109,6 +109,12 @@ We’ll use this Google Doc to record your questions and comments and to provide
 - http://amstat.tandfonline.com/doi/full/10.1080/00031305.2015.1094283 (Thinking with data)
 - http://nhorton.people.amherst.edu/precursors (developing precursors to "Thinking with Data")
 
+### Other datasets
+
+- https://github.com/ropensci/weathercan
+- https://github.com/ropensci/bikedata
+- https://data.geotab.com/
+
 ### RStudio servers
 
 - http://deanattali.com/2015/05/09/setup-rstudio-shiny-server-digital-ocean/
