@@ -25,12 +25,34 @@ Registrants will access workshop materials using a shared space on RStudio.cloud
 ## Schedule
 
 - 9:00-10:15am
+  1. introduction and setup
+  2. mplot
+  3. R markdown
+  4. Less Volume
+  5. Less Volume + mplot redux
+
 - 10:15-10:30am break
+
 - 10:30-noon
+  1. autotrader.ca
+  2. dplyr + tidyverse
+  3. SQL
+
 - noon-1:00pm lunch
+
 - 1:00-2:15pm
+  1. shiny
+  2. spatial analysis
+  3. leaflet
+
 - 2:15-2:30pm break
+
 - 2:30-4:00pm 
+  1. github
+  2. Slack
+  3. DataCamp
+  4. learnr
+  5. closing and all questions answered
 
 
   1. http://cvc.mosaic-web.org/Summer2017/Learn/LessVolume/LessVolume.html#1
