@@ -25,49 +25,47 @@ Registrants will access workshop materials using a shared space on RStudio.cloud
 ## Schedule
 
 - 9:00-10:15am
-  1. introduction and setup
-  2. mplot
-  3. R markdown
-  4. Less Volume
-  5. Less Volume + mplot redux
+  0. apology: US centric datasets
+  1. introduction and setup: please connect to the RStudio.cloud server ssc2018rstudio
+  2. `mplot(HELPrct)`
+  3. [R Markdown](https://prezi.com/vq6l5yqpnqma/intro-to-r-markdown-cvc-2015)
+  4. [Less Volume](http://rstudio.calvin.edu:3939/ecots2018) [LessVolume.Rmd](Less-Volume2018-06.Rmd) tutorials: `learnr::run_tutorial("introduction", package = "ggformula")` `learnr::run_tutorial("refining", package = "ggformula")`
+  5. Working on day one: [Paper](XX) `mplot(XX)` and RPubs
+  6. [RQuiz study guide](R-guide.pdf)
 
 - 10:15-10:30am break
 
 - 10:30-noon
-  1. autotrader.ca
-  2. dplyr + tidyverse
-  3. SQL
+  1. autotrader.ca: please download https://nhorton.people.amherst.edu/cars.csv
+  2. dplyr + tidyverse: [DataI.pdf](https://MDSRXX.people.amherst.edu/workshop/dataI.pdf)
+`dplyr-tutorial.Rmd` `restaurants-example.Rmd`
+  3. SQL: `sql-example1.Rmd` and `sql-example2.Rmd`
+  4. R Style: [Google style guide](XX)
 
 - noon-1:00pm lunch
 
 - 1:00-2:15pm
-  1. shiny
-  2. spatial analysis
-  3. leaflet
+  1. shiny `shiny.R`: please run the app then add another tab that displays summary statistics for the `displayenroll` variable by `subject`: `favstats(displayenroll ~ subject, data = courses())`
+  2. spatial analysis: XX
+  3. leaflet: XX + bikedata?
 
 - 2:15-2:30pm break
 
 - 2:30-4:00pm 
-  1. github
-  2. Slack
-  3. DataCamp
-  4. learnr
-  5. closing and all questions answered
+  1. github: https://github.com/Amherst-Statistics/SSCtest   `github.Rmd`
+  2. DataCamp: https://datacamp.com  XX add screenshot
+  3. learnr: https://rstudio.github.io/learnr/  (see `dplyr-tutorial.Rmd`)
+  4. closing and all questions answered
 
 
-  1. http://cvc.mosaic-web.org/Summer2017/Learn/LessVolume/LessVolume.html#1
   2. https://dtkaplan.shinyapps.io/USBirths/
   3. https://dtkaplan.shinyapps.io/Plotting_with_formulas/
 
-- 11:30am-noon [R Markdown](https://prezi.com/vq6l5yqpnqma/intro-to-r-markdown-cvc-2015)
   1. [hw1.Rmd](https://nhorton.people.amherst.edu/workshop/hw1.Rmd)
   2. [cars.Rmd](https://nhorton.people.amherst.edu/workshop/cars2.Rmd)
-  3. [DataI.pdf](https://nhorton.people.amherst.edu/workshop/dataI.pdf)
 - noon-1pm lunch (with Q&A time)
 - 1:00-1:45pm First steps on day 1
 
-  1. `mplot(HELPrct)`
-  2. http://nhorton.people.amherst.edu/workshop/dayone.Rmd
 
 - 1:45-2:30pm sample activities and assessments
 
@@ -97,11 +95,10 @@ We’ll use this Google Doc to record your questions and comments and to provide
 
 ### Workshop related
 
-- https://rstudio.cloud (RStudio cloud)
 - http://www.github.com/Amherst-Statistics/TeachingStatsDataScience2018-06 (this page)
-- https://nhorton.people.amherst.edu/workshop (workshop materials)
-- http://nhorton.people.amherst.edu/rstudio (student resources)
-- http://nas.edu/EnvisioningDS (Envisioning Undergraduate Data Science Education)
+- https://rstudio.cloud (RStudio cloud)
+- http://nhorton.people.amherst.edu/rstudio (student resources for R)
+- http://nas.edu/EnvisioningDS (Envisioning Undergraduate Data Science Education consensus report)
 
 ### Textbooks
 
@@ -143,4 +140,4 @@ We’ll use this Google Doc to record your questions and comments and to provide
 - https://www.causeweb.org/cause/ecots/ecots16/breakouts/7
 - https://rstudio.cloud
 
-Last updated May 30, 2018
+Last updated May 31, 2018
