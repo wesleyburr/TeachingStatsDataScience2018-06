@@ -1,0 +1,46 @@
+---
+title: "working more with dplyr"
+author: "Nicholas Horton (nhorton@amherst.edu)"
+date: "May 29, 2018"
+output: 
+  html_document:
+    fig_height: 3
+    fig_width: 6
+  pdf_document:
+    fig_height: 3
+    fig_width: 5
+  word_document:
+    fig_height: 4
+    fig_width: 6
+---
+
+
+```{r, include=FALSE}
+# Don't delete this chunk if you are using the mosaic package
+# This loads the mosaic and dplyr packages
+require(mosaic)
+```
+
+```{r, include=FALSE}
+# Some customization.  You can alter or delete as desired (if you know what you are doing).
+
+# This changes the default colors in lattice plots.
+trellis.par.set(theme=theme.mosaic())  
+
+# knitr settings to control how R chunks work.
+require(knitr)
+opts_chunk$set(
+  tidy=FALSE,     # display code as typed
+  size="small"    # slightly smaller font for code
+)
+```
+
+The `Violations` data set in the `mdsr` package contains information regarding the outcome of health inspections of restaurants in New York City. Use these data to calculate the median violation score by zip code for zip codes in Manhattan with 50 or more inspections. What pattern do you see between the number of inspections and the median score?
+
+```{r message=FALSE}
+library(mdsr)
+glimpse(Violations)
+glimpse(ViolationCodes)
+glimpse(Cuisines)
+```
+

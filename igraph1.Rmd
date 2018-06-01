@@ -1,0 +1,47 @@
+---
+title: "network statistics (part 1)"
+author: "Nicholas Horton (nhorton@amherst.edu)"
+date: "May 30, 2018"
+output:
+  pdf_document:
+    fig_height: 5
+    fig_width: 7
+  html_document:
+    fig_height: 3
+    fig_width: 5
+  word_document:
+    fig_height: 3
+    fig_width: 5
+---
+
+```{r, setup, include=FALSE}
+require(mdsr)   # Load additional packages here 
+require(igraph)
+require(leaflet)
+
+# Some customization.  You can alter or delete as desired (if you know what you are doing).
+trellis.par.set(theme=theme.mosaic()) # change default color scheme for lattice
+knitr::opts_chunk$set(
+  tidy=FALSE,     # display code as typed
+  size="small")   # slightly smaller font for code
+```
+
+```{r echo=FALSE, eval=TRUE}
+knitr::opts_chunk$set(error = TRUE)
+```
+
+### Simple networks
+
+
+```{r warning=FALSE}
+library(mdsr)
+library(igraph)
+set.seed(2001)
+g <- erdos.renyi.game(n=7, p=0.45)
+g
+plot(g)
+degree(g)
+betweenness(g)
+edge_betweenness(g)
+eigen_centrality(g)$vector
+```
