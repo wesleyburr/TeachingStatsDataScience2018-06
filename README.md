@@ -40,7 +40,8 @@ Registrants will access workshop materials using a shared space on RStudio.cloud
   2. dplyr + tidyverse: [DataI.pdf](https://MDSRXX.people.amherst.edu/workshop/dataI.pdf)
 `dplyr-tutorial.Rmd` `restaurants-example.Rmd`
   3. SQL: `sql-example1.Rmd` and `sql-example2.Rmd`
-  4. R Style: [Google style guide](XX)
+  4. R Style: [Google style guide](https://google.github.io/styleguide/Rguide.xml)
+  5. Watch Hadley code: https://www.youtube.com/watch?v=go5Au01Jrvs&index=11&list=WL&t=0s
 
 - noon-1:00pm lunch
 
