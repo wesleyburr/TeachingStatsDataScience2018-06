@@ -1,0 +1,168 @@
+---
+title: "Data Science (STAT231) Ethics and Unsupervised learning"
+author: "Nicholas Horton (nhorton@amherst.edu)"
+date: "May 30, 2018"
+output: 
+  pdf_document:
+    fig_height: 8
+    fig_width: 9
+    latex_engine: xelatex
+  html_document:
+    fig_height: 3
+    fig_width: 5
+  word_document:
+    fig_height: 3
+    fig_width: 5
+---
+
+```{r, setup, include=FALSE}
+require(mdsr)   # Load additional packages here 
+knitr::opts_chunk$set(
+  tidy=FALSE,     # display code as typed
+  size="small")   # slightly smaller font for code
+```
+
+## Ethics
+
+### Case study 1: wunderground.com
+
+A researcher is interested in the relationship of weather to sentiment on Twitter.  They want to scrape data from https://www.wunderground.com and join that to Tweets in that geographic area at a particular time.  One complication is that Weather Underground limits the number of data points that can be downloaded for free using their API (application program interface).  The researcher sets up six free accounts to allow them to collect the data they want in a shorter time-frame.  What ethical guidelines are violated by this approach to data scraping?
+
+```
+
+
+
+
+
+
+```
+
+### Case study 2: OKCupid
+
+A data analyst received permission to post a data set that was scraped from a social media site.  The full data set included name, screen name, email address, geographic location, IP (Internet protocol) address, demographic profiles, and preferences for relationships.  Why might it be problematic to post a deidentified form of this data set where name and email address were removed?
+
+```
+
+
+
+
+
+
+
+```
+
+### Case study 3: Job abs
+
+A company uses a machine learning algorithm to determine which job advertisement to display for users searching for technology jobs.  Based on past results, the algorithm tends to display lower paying jobs for women than for men (after controlling for other characteristics than gender).  What ethical considerations might be considered when reviewing this algorithm?
+
+```
+
+
+
+
+
+
+```
+
+### Case study 4: Chocolate and weight loss
+
+A reporter carried out a clinical trial of chocolate where a small number of overweight subjects who had received medical clearance were randomized to either eat dark chocolate or not to eat dark chocolate.  They were followed for a period and their change in weight was recorded from baseline until the end of the study.  More than a dozen outcomes were recorded and one proved to be significantly different in the treatment group than the outcome.  This study was publicized and received coverage from a number of magazines and television programs.  Outline the ethical considerations that arise in this situation.
+
+```
+
+
+
+
+
+
+
+```
+
+## Unsupervised learning
+
+```{r warning=FALSE, message=FALSE}
+library(okcupiddata)
+profiles <- profiles %>%
+  mutate(income = ifelse(is.na(income), 0, income/1000),  # arbitrary (and maybe not a good idea!)
+         # should think more about the missing values here
+         druguse = recode(drugs, 
+                          never = 0,
+                          sometimes = 1,
+                          often = 1),
+         drinking = recode(drinks,
+                           `not at all` = 0,
+                           rarely = 1,
+                           often = 2,
+                           socially = 3,
+                           `very often` = 4, # more arbitrariness
+                           desperately = 5),
+         female = ifelse(sex=="f", 1, 0),
+         smoking = recode(smokes,
+                          no = 0, 
+                          yes = 2,
+                          sometimes = 1,
+                          `trying to quit` = 1,  # more arbitrariness
+                          `when drinking` = 1)
+         ) %>%
+  select(age, drinking, druguse, female, income, height, smoking) %>%
+  na.omit()
+glimpse(profiles)
+```
+
+```{r}
+favstats(~ age, data=profiles)
+tally(~ drinking, data=profiles)
+tally(~ druguse, data=profiles)
+tally(~ female, data=profiles)
+favstats(~ income, data=profiles)
+favstats(~ height, data=profiles)
+tally( ~ smoking, data=profiles)
+```
+
+```{r warning=FALSE, message=FALSE}
+set.seed(1999)
+library(mclust)
+CupidClusts <- profiles %>%
+  kmeans(centers = 5) %>%    # Nick's arbitrary choice
+  fitted("classes") %>%
+  as.character
+profiles <- profiles %>%
+  mutate(cluster = as.factor(CupidClusts),
+         sex = ifelse(female==1, "F", "M"),
+         druguse = ifelse(druguse==1, "Yes", "No"),
+         drinking = ifelse(drinking==1, "Yes", "No"),
+         smoking = ifelse(smoking==1, "Yes", "No"),
+         income = log10(income + 1)) %>%
+  filter(height >= 48)
+```
+I've generated some graphical displays.  Can you name the clusters?
+
+```{r, message=FALSE}
+library(GGally)
+ggpairs(select(profiles, cluster, income, age, height, sex, drinking, smoking, druguse))
+# reorder to look better!
+```
+
+\newpage
+```{r}
+mosaicplot(tally(~ smoking + cluster, data=profiles))
+```
+
+\newpage
+```{r}
+ggplot(profiles, aes(x = jitter(age, factor=5))) + geom_density(adjust = 0.4) + 
+  aes(colour = cluster) + xlab("Jittered age")
+```
+\newpage
+```{r}
+
+ggplot(profiles, aes(x = age, y = jitter(height, factor=10))) + 
+  geom_point(aes(color = cluster), alpha=0.4) +
+  facet_wrap(~ sex) +
+  ylab("Jittered height")
+```
+
+### Exploration
+
+Consider other variables that were used in the clustering.  Are they helpful in explaining the clusters?  If so, which ones?
+
