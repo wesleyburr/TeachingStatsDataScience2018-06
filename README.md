@@ -9,8 +9,6 @@ R is a freely available language and environment for statistical computing and g
 
 Much of this "Less Volume, More Creativity" approach will be facilitated using the mosaic package. The workshop is designed to be accessible to those with little or no experience with R and is intended to provide participants with skills, examples, and resources that they can use in their own teaching.
 
-INSTRUCTOR: Nicholas Horton is a Professor of Statistics at Amherst College, with methodologic research interests in longitudinal regression models and missing data methods and applications in psychiatric epidemiology and substance abuse research. He received his doctorate in Biostatistics (with minors in Psychosocial Comorbidity and Theoretical Statistics) from the Harvard School of Public Health in 1999. Dr. Horton has co-authored more than 160 papers in the statistical methodology, behavioral research, and health services research literature, as well as a series of books on statistical computing and data science in R. He is an accredited statistician, a Fellow of the American Statistical Association, former member of the ASA Board of Directors, a member of the workgroup that revised the GAISE College Report, recipient of the Sherrerd, Waller, Hogg, and Warde teaching awards, and past-chair of the ASA's Section on Statistical Education.
-
 ## Logistics
 
 ### Laptops
@@ -25,19 +23,19 @@ Registrants will access workshop materials using a shared space on RStudio.cloud
 ## Schedule
 
 - 9:00-10:15am
-  0. apology: US centric datasets
-  1. introduction and setup: please connect to the RStudio.cloud server ssc2018rstudio
+  0. introduction and setup: please connect to the RStudio.cloud server ssc2018rstudio
+  1. apology: US centric datasets
   2. `mplot(HELPrct)`
   3. [R Markdown](https://prezi.com/vq6l5yqpnqma/intro-to-r-markdown-cvc-2015)
   4. [Less Volume](http://rstudio.calvin.edu:3939/ecots2018) [LessVolume.Rmd](Less-Volume2018-06.Rmd) tutorials: `learnr::run_tutorial("introduction", package = "ggformula")` `learnr::run_tutorial("refining", package = "ggformula")`
-  5. Working on day one: [Paper](XX) `mplot(XX)` and RPubs
+  5. Working on day one: [TISE Paper](https://escholarship.org/uc/item/84v3774z) `mplot(XX)` and RPubs
   6. [RQuiz study guide](R-guide.pdf)
 
 - 10:15-10:30am break
 
 - 10:30-noon
   1. autotrader.ca: please download https://nhorton.people.amherst.edu/cars.csv
-  2. dplyr + tidyverse: [DataI.pdf](https://MDSRXX.people.amherst.edu/workshop/dataI.pdf)
+  2. dplyr + tidyverse: https://dtkaplan.shinyapps.io/Five_data_verbs/#section-pipe-notation
 `dplyr-tutorial.Rmd` `restaurants-example.Rmd`
   3. SQL: `sql-example1.Rmd` and `sql-example2.Rmd`
   4. R Style: [Google style guide](https://google.github.io/styleguide/Rguide.xml), [Hadley style guide](http://adv-r.had.co.nz/Style.html), Randy's [suggestions](style.md)
@@ -59,26 +57,7 @@ Registrants will access workshop materials using a shared space on RStudio.cloud
   4. closing and all questions answered
 
 
-  2. https://dtkaplan.shinyapps.io/USBirths/
-  3. https://dtkaplan.shinyapps.io/Plotting_with_formulas/
-
-  1. [hw1.Rmd](https://nhorton.people.amherst.edu/workshop/hw1.Rmd)
-  2. [cars.Rmd](https://nhorton.people.amherst.edu/workshop/cars2.Rmd)
-- noon-1pm lunch (with Q&A time)
-- 1:00-1:45pm First steps on day 1
-
-
-- 1:45-2:30pm sample activities and assessments
-
-  1. Roadless USA (`source("http://nhorton.people.amherst.edu/workshop/roadless-setup.R"`)
-  2. cars.com 
-  3. [RQuiz study guide](https://nhorton.people.amherst.edu/workshop/R-guide.pdf)
-
-- 2:30-2:45pm break
-
-- 2:45-3:15pm More on RStudio, the tidyverse, and related resources 
-
-  1. [Data Wrangling cheatsheet](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf)
+  1. [Rstudio cheatsheets](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf)
   2. [DataI.pdf](https://nhorton.people.amherst.edu/workshop/dataI.pdf)
   3. http://nhorton.people.amherst.edu/workshop/dplyr-tutorial.Rmd
   4. `shiny::runGitHub("shiny_apps", "bborgesr", subdir = "dataOp")`
@@ -99,6 +78,8 @@ We’ll use this Google Doc to record your questions and comments and to provide
 - http://www.github.com/Amherst-Statistics/TeachingStatsDataScience2018-06 (this page)
 - https://rstudio.cloud (RStudio cloud)
 - http://nhorton.people.amherst.edu/rstudio (student resources for R)
+- https://statprep.github.io/Workshops_2018/Tutorials/tutorials.html (StatPREP tutorials)
+- https://www.rstudio.com/resources/cheatsheets/ (RStudio cheatsheet)
 - http://nas.edu/EnvisioningDS (Envisioning Undergraduate Data Science Education consensus report)
 
 ### Textbooks
@@ -141,4 +122,4 @@ We’ll use this Google Doc to record your questions and comments and to provide
 - https://www.causeweb.org/cause/ecots/ecots16/breakouts/7
 - https://rstudio.cloud
 
-Last updated May 31, 2018
+Last updated June 1, 2018
