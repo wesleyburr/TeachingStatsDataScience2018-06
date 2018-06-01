@@ -1,0 +1,172 @@
+---
+title: 'STAT135: Confidence intervals and more cars'
+author: "Nicholas Horton (nhorton@amherst.edu)"
+date: "May 29, 2018"
+output:
+  pdf_document:
+    fig_height: 3.0
+    fig_width: 6.5
+  html_document:
+    fig_height: 3
+    fig_width: 5
+  word_document:
+    fig_height: 3
+    fig_width: 5
+---
+
+
+```{r, include=FALSE}
+# Don't delete this chunk if you are using the mosaic package
+# This loads the mosaic and dplyr packages
+require(mosaic)
+require(tidyr)
+options(digits=3)
+```
+
+```{r, include=FALSE}
+# Some customization.  You can alter or delete as desired (if you know what you are doing).
+
+# This changes the default colors in lattice plots.
+trellis.par.set(theme=theme.mosaic())  
+
+# knitr settings to control how R chunks work.
+require(knitr)
+opts_chunk$set(
+  tidy=FALSE,     # display code as typed
+  size="small"    # slightly smaller font for code
+)
+# This loads the mosaic data sets.  (Could be deleted if you are not using them.)
+require(mosaicData)                
+library(readr)
+```
+
+#### Chapter 17 in a nutshell
+- The distribution of sample means is less variable than the distribution of the underlying population
+- The distribution of sample means is more normal than the distribution of the underlying population
+
+#### Confidence intervals for a proportion
+
+SE($\hat{p}$) = 
+
+```
+
+```
+
+Constructing a confidence interval:
+
+```
+
+```
+
+Interpreting a confidence interval:
+
+```
+
+```
+
+Example 1: Each of the 110 students in a statistics class selects a different random sample of 35 Quiz scores from a population of 5000 scores they are given. Using their data, each student constructs a 90% confidence interval for $\mu$, the average Quiz score of the 5000 students. Which of the following conclusions is correct?
+
+a) About 10% of the sample means will not be included in the confidence intervals. 
+b) About 90% of the confidence intervals will contain $\mu$.
+c) It is probable that 90% of the confidence intervals will be identical. 
+d) About 10% of the raw scores in the samples will not be found in these confidence intervals. 
+
+Example 2: Suppose two researchers want to estimate the proportion of American college students who favor abolishing the penny. They both want to have about the same margin of error to estimate this proportion. However, Researcher 1 wants to estimate with 99% confidence and Researcher 2 wants to estimate with 95% confidence. Which researcher would need more students for her study in order to obtain the desired margin of error?
+
+a) Researcher 1. 
+b) Researcher 2. 
+c) Both researchers would need the same number of subjects. 
+d) It is impossible to obtain the same margin of error with the two different confidence levels. 
+ 
+
+#### More cars
+
+```{r message=FALSE}
+ds <- read_csv("http://nhorton.people.amherst.edu/workshop/carscollated2017.csv")
+ds <- mutate(ds, yearchar = as.character(year))
+```
+
+```{r}
+tally(~ year, data=ds)
+tally(~ location, data=ds)
+ds <- filter(ds, year > 2010, year < 2017)  # drop new cars and really old cars
+```
+
+```{r fig.height=5}
+gf_point(price ~ mileage, color = ~ yearchar, data = ds) %>%
+  gf_lm()
+```
+
+#### a) interpret what insights you can make from the scatterplot
+
+SOLUTION:
+
+```
+
+
+
+
+
+
+```
+
+```{r}
+options(scipen=5, show.signif.stars=FALSE, digits=4)
+mod <- lm(price ~ location + mileage + yearchar + mileage*yearchar, data=ds)
+msummary(mod)
+```
+
+#### b) interpret the regression results
+
+SOLUTION:
+
+```
+
+
+
+
+
+
+```
+
+#### c) Predicted values
+
+```{r}
+modfun <- makeFun(mod)
+modfun(location = "Chicago", mileage = 0, yearchar = "2016")
+```
+
+
+```{r results="hide"}
+mplot(mod, which=1)   # Figure 1
+gf_dhistogram(~ resid(mod), fit="normal", binwidth = 750, 
+             main="Figure 2", xlab="residuals from the model") %>%
+  gf_fitdistr()
+gf_point(resid(mod) ~ mileage, ylab="residuals from the model", 
+  main="Figure 3", data=ds) %>%
+  gf_lm() %>%
+  gf_smooth(se = FALSE)
+mplot(mod, which=3)  # Figure 4
+```
+
+#### d) interpret the regression diagnostics 
+(be sure to specify which assumption is being verified using which figure)
+
+SOLUTION:
+
+```
+
+
+```
+\newpage
+```{r}
+ds <- mutate(ds, fitted = predict(mod), resid = resid(mod))
+filter(ds, resid(mod)< -10000)
+```
+
+#### e) what might we conclude about the large residuals?
+
+SOLUTION:
+```
+
+```

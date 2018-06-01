@@ -1,0 +1,98 @@
+---
+title: "Cars.com (part 1)"
+author: "XX ADD NAMES HERE"
+date: 'XX ADD DATE HERE'
+output:
+  html_document:
+    fig_height: 3
+    fig_width: 5
+  pdf_document:
+    fig_height: 3
+    fig_width: 5
+  word_document:
+    fig_height: 3
+    fig_width: 5
+---
+
+
+```{r include=FALSE}
+# Don't delete this chunk if you are using the mosaic package
+# This loads the mosaic and dplyr packages
+library(mosaic)
+library(readr)
+```
+
+```{r include=FALSE}
+# Some customization.  You can alter or delete as desired (if you know what you are doing).
+
+# This changes the default colors in lattice plots.
+trellis.par.set(theme=theme.mosaic())  
+
+# knitr settings to control how R chunks work.
+require(knitr)
+opts_chunk$set(
+  tidy=FALSE,     # display code as typed
+  size="small"    # slightly smaller font for code
+)
+```
+
+### PART 1: A SUMMARY OF WHAT WE FOUND: 
+
+SOLUTION:
+
+```{r}
+# be sure to upload cars.csv to RStudio in the same folder as this file
+ds <- read_csv("cars.csv")
+ds <- mutate(ds, yearchar = as.character(year))
+names(ds)
+```
+
+```{r}
+# summary statistics (please delete those that you are not using)
+tally(~ car, data = ds)
+tally(~ model, data = ds)
+tally(~ year, data = ds)
+tally(~ location, data = ds)
+favstats(~ price, data = ds)
+favstats(~ mileage, data = ds)
+```
+
+### PART 2: AN INTERESTING PLOT (WITH INTERPRETATION)
+```{r}
+# here are some of my ideas: please explore and elaborate using some different plots
+gf_boxplot(price ~ yearchar, data = ds)
+gf_boxplot(mileage ~ yearchar, data = ds)
+gf_point(price ~ mileage, data = ds) %>% gf_lm() %>% gf_smooth(se = FALSE)
+gf_point(price ~ year, data = ds) %>% gf_lm() %>% gf_smooth(se = FALSE)
+```
+
+SOLUTION:
+
+```{r}
+# your new plot goes here
+
+```
+
+
+### PART 3: RESULTS FROM YOUR MULTIPLE REGRESSION MODEL
+
+along with interpretation of the coefficients
+
+```{r}
+# here's my example (with just one predictor)
+lm1 <- lm(price ~ year, data = ds)
+coef(lm1)
+# your model should have at least two predictors
+```
+
+SOLUTION: 
+
+
+
+
+
+
+
+
+
+

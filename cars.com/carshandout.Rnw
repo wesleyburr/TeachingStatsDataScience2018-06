@@ -1,0 +1,102 @@
+\documentclass[10pt]{article}
+
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{fancyhdr,url}
+\usepackage{graphicx}
+
+\oddsidemargin 0in  %0.5in
+\topmargin     0in
+\leftmargin    0in
+\rightmargin   0in
+\textheight    9in
+\textwidth     6in %6in
+%\headheight    0in
+%\headsep       0in
+%\footskip      0.5in
+
+
+\pagestyle{fancy}
+
+\lhead{\textsc{Nicholas Horton}}
+\chead{\textsc{STAT 135: Lecture Notes}}
+\rhead{\textsc{May 29, 2018}}
+\lfoot{}
+\cfoot{}
+%\cfoot{\thepage}
+\rfoot{}
+\renewcommand{\headrulewidth}{0.2pt}
+\renewcommand{\footrulewidth}{0.0pt}
+
+\newcommand{\ans}{\vspace{1.3in}}
+
+\begin{document}
+%\maketitle
+
+\paragraph{Cars}
+
+Car prices vary. They vary according to the model of car, the optional features in the car, the geographical location, and the respective bargaining abilities of the buyer and the seller.
+
+\includegraphics[scale=0.6]{cars.png}
+
+In this activity, in groups of 2, you are going to investigate the influence of a variety of factors on the asking price for used cars:
+\begin{itemize}
+\item Model year
+\item Model
+\item Mileage
+\item Geographical location
+\end{itemize}
+
+
+\begin{enumerate}
+\item For your assigned location, use the web site to find prices and the other variables for used Toyota Prius's (you can specify the city under ``Advanced Search").  I want you to collect data for at least 40 cars, using data from {\tt autotrader.ca}. Record these in a spreadsheet (e.g., Google Sheets or Microsoft Excel) with six variables: {\tt car} (which will always be {\tt Toyota Prius}), {\tt model}, {\tt price}, {\tt year}, {\tt mileage}, and {\tt location} (your assigned city). I have provided a template in {\tt cars.csv}.
+
+The model will always be {\tt Toyota Prius}.  The model name will typically be of the form {\tt none}, {\tt c}, {\tt plug-in}, {\tt v Two}, {\tt v Three}, {\tt v Four}, {\tt v Five} or similar.
+
+
+I would like you to restrict your scraping to used vehicles with model years between 2011 and 2017.
+
+Recording this information in the spreadsheet will help in combining data for different types of Toyota Prius's.
+
+You will need to identify a postal code for your specified city.
+
+It's important to ensure that all of your variables (in particular {\tt price}) are provided as numbers (no dollar sign, commas, etc) and that you use the exact names given above.  Here's an example for the Mini's from above (note that you'll be scraping data on Toyota Prius's):
+
+<<echo=FALSE>>=
+price = c(22500, 22500, 22165); mileage=c(9844, 13370, 16737);
+year = c(2012, 2011, 2012)
+location = rep("Montreal", 3); car = rep("Mini Cooper", 3); model=c("Base", "Base", "Base")
+ds = data.frame(car, model, price, year, mileage, location)
+@
+<<>>=
+ds
+@
+
+
+\item Save your spreadsheet as a {\tt .csv} file (I have provided a template as {\tt cars.csv}, then upload it to RStudio.cloud.
+
+\item Generate two plots of your data that represent an interesting relationship between two variables.  There are some examples to get you started in the R Markdown template.
+
+
+\item Using the data, build a simple multiple regression model for the patterns seen in used-car prices. Some basic claims that you might make are in this form:
+\begin{enumerate}
+\item Looking just at price versus mileage, the price of car model XXX falls by 12 cents per kilometer driven.
+\item Looking just at price versus age, the price of car model XXX falls by 1000 dollars per year of age driven.
+\end{enumerate}
+\item Note whether there are outliers in your data and indicate whether these are having a strong influence on the coefficients you find.
+(If you note errors in your coding of your data please fix them and reload the data.)
+\end{enumerate}
+
+(Hint: you may want to set the option: {\tt options(scipen = 5)} to avoid scientific notation for some of your coefficients.)
+
+Your deliverable for this project will be your dataset (as a .csv file: please double check format), plus the formatted Markdown file from your
+analyses (pdf) and the source (Rmd) file, which includes:
+\begin{itemize}
+\item a brief summary of what you collected (an overview of what you collected: price, model, mileage and year from n=XX used Toyota Corollas for sale within YY miles of ZZ (your city),
+\item a summary of the distribution of two of the variables that you collected (for categorical variables counts and proportions; for continuous the usual summary of shape, center, and spread),
+\item an interesting plot (that uses at least three of the variables in the dataset), along with your interpretation, plus
+\item results from a single multiple regression model with at least two predictors, along with interpretation of the coefficients from that model.
+\item please upload your formatted output to RPubs (I will provide you the login information).
+\end{itemize}
+
+
+\end{document}

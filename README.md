@@ -34,7 +34,7 @@ Registrants will access workshop materials using a shared space on RStudio.cloud
 - 10:15-10:30am break
 
 - 10:30-noon
-  1. autotrader.ca: please download https://nhorton.people.amherst.edu/cars.csv
+  1. autotrader.ca: please download https://nhorton.people.amherst.edu/cars.csv and scrape data (see instructions at cars.com/carshandout.pdf)
   2. dplyr + tidyverse: https://dtkaplan.shinyapps.io/Five_data_verbs/#section-pipe-notation plus 
 `dplyr-tutorial.Rmd` and `restaurants-example.Rmd`
   3. SQL: `sql-example1.Rmd` and `sql-example2.Rmd`
@@ -45,7 +45,6 @@ Registrants will access workshop materials using a shared space on RStudio.cloud
 
 - 1:00-2:15pm
   1. shiny `shiny.R`: please run the app then add another tab that displays summary statistics for the `displayenroll` variable by `subject`: `favstats(displayenroll ~ subject, data = courses())`
-  2. spatial analysis: XX
   2. network analysis: `igraph1.Rmd` and `igraph2.Rmd`
   3. leaflet: XX + bikedata?
 
@@ -53,7 +52,10 @@ Registrants will access workshop materials using a shared space on RStudio.cloud
 
 - 2:30-4:00pm 
   1. github: https://github.com/Amherst-Statistics/SSCtest   `github.Rmd`
-  2. DataCamp: https://datacamp.com  XX add screenshot
+  2. DataCamp: https://datacamp.com  
+
+![](datacamp.png)
+
   3. learnr: https://rstudio.github.io/learnr/  (see `dplyr-tutorial.Rmd`)
   4. closing and all questions answered
 
