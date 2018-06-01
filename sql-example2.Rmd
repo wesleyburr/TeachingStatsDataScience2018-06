@@ -1,0 +1,108 @@
+---
+title: "Access Ensembl data"
+author: "Nicholas Horton (nhorton@amherst.edu) and Ben Baumer"
+date: "May 29, 2018"
+output: html_document
+---
+
+
+## Introduction
+
+This document is intended to describe how to access data from a MySQL database using R.  It utilizes a database of genetic information that has been made publically available for analysis.
+
+
+#### Ensembl
+
+The website at https://www.ensembl.org states:
+
+> Ensembl is a genome browser for vertebrate genomes that supports research in comparative genomics, evolution, sequence variation and transcriptional regulation. Ensembl annotate genes, computes multiple alignments, predicts regulatory function and collects disease data. Ensembl tools include BLAST, BLAT, BioMart and the Variant Effect Predictor (VEP) for all supported species.
+
+The website provides a list of what one can do with Ensembl:
+
+- View genes along with other annotation along the chromosome
+- View alternative transcripts (including splice variants) for a gene
+- Explore homologues and phylogenetic trees across more than 40 species for any gene
+- Compare whole genome alignments and conserved regions across species
+- View microarray sequences that match to Ensembl genes
+- View ESTs, clones, mRNA and proteins for any chromosomal region
+- Examine single nucleotide polymorphisms (SNPs) for a gene or chromosomal region
+- View SNPs across strains (rat, mouse), populations (human), or even breeds (dog)
+- View positions and sequence of mRNA and protein that align with an Ensembl gene
+- Upload your own data
+- Use BLAST, or BLAT, a similar sequence alignment search tool, against any Ensembl
+genome
+- Export sequence, or create a table of gene information with BioMart
+
+#### Background on databases in R
+
+A relevant paper on the topic of data management and databases in R can be found at http://chance.amstat.org/2015/04/setting-the-stage.
+
+
+## Accessing data from a database using SQL commands
+
+First we demonstrate how to access data using SQL (structured query language) commands and the `dbGetQuery()` function.  We begin by setting up a connection to the database.
+
+```{r, message=FALSE}
+library(tidyverse)
+library(RMySQL)
+con <- dbConnect(MySQL(), host = "ensembldb.ensembl.org",
+                user = "anonymous", password = "", 
+                port = 3306)
+```
+
+Next a series of SQL queries can be sent to the database.  These return R dataframes.  Let's start by seeing what databases are available.
+
+```{r}
+ds <- dbGetQuery(con, "SHOW DATABASES")
+dim(ds)
+grep("scrofa", ds$Database, value = TRUE)
+```
+
+Let's focus on the `sus_scrofa_variation_79_102` database.  
+```{r warning=FALSE}
+dbGetQuery(con, "USE sus_scrofa_variation_79_102;")
+dbGetQuery(con, "SHOW TABLES")
+dbGetQuery(con, "SELECT * FROM publication")
+dbGetQuery(con, "SELECT * FROM source")
+ds <- dbGetQuery(con, "SELECT * from individual LIMIT 1000")
+glimpse(ds)
+ds %>%
+  group_by(description) %>%
+  summarize(N = n()) %>%
+  arrange(desc(N))
+```
+
+We can track down the publication which is associated with these data.
+
+https://www.ncbi.nlm.nih.gov/pubmed/25662601
+
+East Balkan Swine (EBS) Sus scrofa is the only aboriginal domesticated pig breed in Bulgaria and is distributed on the western coast of the Black Sea in Bulgaria. To reveal the breed's genetic characteristics, we analysed mitochondrial DNA (mtDNA) and Y chromosomal DNA sequences of EBS in Bulgaria. Nucleotide diversity (πn ) of the mtDNA control region, including two newly found haplotypes, in 54 EBS was higher (0.014 ± 0.007) compared with that of European (0.005 ± 0.003) and Asian (0.006 ± 0.003) domestic pigs and wild boar. The median-joining network based on the mtDNA control region showed that the EBS and wild boar in Bulgaria comprised mainly two major mtDNA clades, European clade E1 (61.3%) and Asian clade A (38.7%). The coexistence of two mtDNA clades in EBS in Bulgaria may be the relict of historical pig translocation. Among the Bulgarian EBS colonies, the geographical differences in distribution of two mtDNA clades (E1 and A) could be attributed to the source pig populations and/or historical crossbreeding with imported pigs. In addition, analysis of the Y chromosomal DNA sequences for the EBS revealed that all of the EBS had haplotype HY1, which is dominant in European domestic pigs.
+
+## Accessing a database using dplyr commands
+
+Alternatively, a connection can be made to the server by creating a `dplyr` table objects for any give SQL table.  
+
+```{r warning=FALSE}
+db <- src_mysql(dbname = "sus_scrofa_variation_79_102", 
+                host = "ensembldb.ensembl.org", 
+                user = "anonymous",
+                port = 3306,
+                password = "")
+Allele <- tbl(db, "allele")
+```
+
+#### Let's explore this table
+
+```{r, warning=FALSE}
+Allele %>% 
+  head()
+```
+
+```{r, warning=FALSE}
+Allele %>%
+  group_by(allele_code_id) %>%
+  summarize(meanfreq = mean(frequency), count = n())
+```
+
+Want to explore more?  See the tutorials at https://www.ensembl.org/info/website/tutorials/index.html
+

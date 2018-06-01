@@ -45,8 +45,9 @@ Registrants will access workshop materials using a shared space on RStudio.cloud
 
 - 1:00-2:15pm
   1. shiny `shiny.R`: please run the app then add another tab that displays summary statistics for the `displayenroll` variable by `subject`: `favstats(displayenroll ~ subject, data = courses())`
+  2. Shiny gallery: https://shiny.rstudio.com/gallery/
   2. network analysis: `igraph1.Rmd` and `igraph2.Rmd`
-  3. leaflet: XX + bikedata?
+  3. leaflet: `leaflet.Rmd`
 
 - 2:15-2:30pm break
 
@@ -60,12 +61,6 @@ Registrants will access workshop materials using a shared space on RStudio.cloud
   4. closing and all questions answered
 
 
-  1. [Rstudio cheatsheets](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf)
-  2. [DataI.pdf](https://nhorton.people.amherst.edu/workshop/dataI.pdf)
-  3. http://nhorton.people.amherst.edu/workshop/dplyr-tutorial.Rmd
-  4. `shiny::runGitHub("shiny_apps", "bborgesr", subdir = "dataOp")`
-
-- 3:15-3:30pm A glimpse of leaflet ([leaflet.Rmd](https://nhorton.people.amherst.edu/workshop/leaflet.Rmd]), [learnr](https://rstudio.github.io/learnr), and [Shiny gallery](https://shiny.rstudio.com/gallery)
 - 3:30-3:45pm Closing thoughts, other resources, final review of Q&A document, and next steps
 
 ## Feedback

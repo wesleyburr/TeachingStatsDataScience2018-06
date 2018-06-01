@@ -1,0 +1,118 @@
+---
+title: "Access WAI database using R (Voss PI)"
+author: "Nicholas Horton (nhorton@amherst.edu)"
+date: "May 29, 2018"
+output: 
+  pdf_document:
+    fig_height: 7
+    fig_width: 7
+  html_document:
+    fig_height: 3
+    fig_width: 5
+  word_document:
+    fig_height: 3
+    fig_width: 5
+---
+
+This file provides an example of the use of SQL within R to access data from the Wideband Acoustic Immittance database.  See http://www.science.smith.edu/wai-database/ for more information.
+
+```{r, include=FALSE}
+# Don't delete this chunk if you are using the mosaic package
+# This loads the mosaic and dplyr packages
+library(mdsr)
+```
+
+```{r, include=FALSE}
+# knitr settings to control how R chunks work.
+require(knitr)
+opts_chunk$set(
+  tidy=FALSE,     # display code as typed
+  size="small"    # slightly smaller font for code
+)
+# Load additional packages here.  Uncomment the line below to use Project MOSAIC data sets.
+# require(mosaicData)   
+```
+
+```{r}
+library(mosaic)
+library(RMySQL)
+db <- src_mysql(dbname = "wai", host = "scidb.smith.edu", user = "waiuser", 
+          password="smith_waiDB")
+Measurements <- tbl(db, "Measurements")
+PI_Info <- tbl(db, "PI_Info")
+Subject <- tbl(db, "Subject")
+```
+
+#### Let's explore the `PI_Info` table.
+```{r}
+PI_Info %>% collect() %>% data.frame()
+```
+
+#### Let's explore the `Subjects` table.
+```{r}
+Subject %>% collect() %>% data.frame() %>% head()
+```
+
+#### Let's explore the `Measurements` table.
+```{r}
+Measurements %>% summarise(total = n())
+```
+
+#### Let's download the data from a given subject
+```{r}
+Rosowski <- 
+  Measurements %>% 
+  filter(Identifier=="Rosowski_2012") %>%
+  collect %>%
+  mutate(SessionNum = as.factor(Session),
+         EarStatus = ifelse(Left_Ear==1, "Left", "Right")) %>%
+  arrange(Sub_Number, Freq, EarStatus)
+head(Rosowski)
+```
+
+#### and plot the results
+
+```{r}
+ggplot(Rosowski, aes(x=Freq, y=Absorbance, group=Sub_Number)) + 
+  geom_line() + 
+  facet_grid(. ~ EarStatus) + 
+  scale_x_log10() + 
+  ylim(0, 1) +
+  labs(title="Absorbance as a function of frequency", caption = "Data from Rosowski et al, 2012")
+```
+
+```{r}
+gf_line(Absorbance ~ Freq, color = ~ Sub_Number, group = ~ Sub_Number,
+         data = Rosowski) %>% 
+  gf_facet_wrap(~ EarStatus) %>%
+  gf_refine(scale_x_log10()) %>%
+  gf_labs(title="Absorbance as a function of frequency", 
+       caption = "Data from Rosowski et al, 2012")
+```
+
+```{r}
+library(tidyr)
+Rosowskiwide <- Rosowski %>%
+  select(Sub_Number, EarStatus, Freq, Absorbance) %>%
+  spread(EarStatus, Absorbance) %>%
+  mutate(diff = Left - Right)
+```
+
+```{r}
+ggplot(Rosowskiwide, aes(x=Freq, y=diff, group=Sub_Number)) + 
+  geom_line(colour="lightgreen") + 
+  scale_x_log10() + 
+  ylim(-0.5, 0.5) +
+  labs(title="Difference in absorbance as a function of frequency", caption = "Data from Rosowski et al, 2012")
+```
+
+
+```{r}
+gf_line(diff ~ Freq, group = ~ Sub_Number, color = ~ Sub_Number, data = Rosowskiwide) %>%
+  gf_refine(scale_x_log10()) %>%
+  gf_lims(y = c(-0.5, 0.5)) %>%
+  gf_labs(title="Difference in absorbance as a function of frequency", 
+          caption = "Data from Rosowski et al, 2012")
+```
+  
+
