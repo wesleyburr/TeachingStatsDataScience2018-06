@@ -23,9 +23,11 @@ Registrants will access workshop materials using a shared space on RStudio.cloud
 ## Schedule
 
 - 9:00-10:15am
+
   0. introduction and setup: please connect to the RStudio.cloud server ssc2018rstudio
 
-![](temporary.png)
+![](images/login.png)
+![](images/temporary.png)
 
   1. apology: US centric datasets
   2. `mplot(HELPrct)`
