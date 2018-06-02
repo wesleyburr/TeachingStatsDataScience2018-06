@@ -35,11 +35,12 @@ Registrants will access workshop materials using a shared space on RStudio.cloud
 
 - 10:30-noon
   1. autotrader.ca: please download https://nhorton.people.amherst.edu/cars.csv and scrape data (see instructions at cars.com/carshandout.pdf)
-  2. dplyr + tidyverse: https://dtkaplan.shinyapps.io/Five_data_verbs/#section-pipe-notation plus 
+  2. An [overview](https://github.com/Amherst-Statistics/TeachingStatsDataScience2018-06/SSC2018.pdf)
+  3. dplyr + tidyverse: https://dtkaplan.shinyapps.io/Five_data_verbs/#section-pipe-notation plus 
 `dplyr-tutorial.Rmd` and `restaurants-example.Rmd`
-  3. SQL: `sql-example1.Rmd` and `sql-example2.Rmd`
-  4. R Style: [Google style guide](https://google.github.io/styleguide/Rguide.xml), [Hadley style guide](http://adv-r.had.co.nz/Style.html), Randy's [suggestions](style.md)
-  5. Watch Hadley code: https://www.youtube.com/watch?v=go5Au01Jrvs&index=11&list=WL&t=0s
+  4. SQL: `sql-example1.Rmd` and `sql-example2.Rmd`
+  5. R Style: [Google style guide](https://google.github.io/styleguide/Rguide.xml), [Hadley style guide](http://adv-r.had.co.nz/Style.html), Randy's [suggestions](style.md)
+  6. Watch Hadley code: https://www.youtube.com/watch?v=go5Au01Jrvs&index=11&list=WL&t=0s
 
 - noon-1:00pm lunch
 
@@ -120,4 +121,4 @@ We’ll use this Google Doc to record your questions and comments and to provide
 - https://www.causeweb.org/cause/ecots/ecots16/breakouts/7
 - https://rstudio.cloud
 
-Last updated June 1, 2018
+Last updated June 2, 2018
