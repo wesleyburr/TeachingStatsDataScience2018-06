@@ -1,3 +1,5 @@
+## How to Teach Intro Statistics and Data Science using R and RStudio
+
 0. Use a cloud-based server
 
 This is probably the most important advice we could give in terms of successfully 
