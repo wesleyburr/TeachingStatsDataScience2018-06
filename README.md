@@ -27,7 +27,7 @@ Registrants will access workshop materials using a shared space on RStudio.cloud
   1. apology: US centric datasets
   2. `mplot(HELPrct)`
   3. [R Markdown](https://prezi.com/vq6l5yqpnqma/intro-to-r-markdown-cvc-2015)
-  4. [Less Volume](http://rstudio.calvin.edu:3939/ecots2018) [LessVolume.Rmd](Less-Volume2018-06.Rmd) tutorials: `learnr::run_tutorial("introduction", package = "ggformula")` `learnr::run_tutorial("refining", package = "ggformula")`
+  4. [Less Volume](http://rstudio.calvin.edu:3939/ecots2018) tutorial and [LessVolume.Rmd](Less-Volume2018-06.Rmd) Rmd: `learnr::run_tutorial("introduction", package = "ggformula")` `learnr::run_tutorial("refining", package = "ggformula")`
   5. Working on day one: [TISE Paper](https://escholarship.org/uc/item/84v3774z) `mplot(XX)` and RPubs (username 'STAT135')
   6. [RQuiz study guide](quiz/R-guide.pdf)
 
@@ -41,8 +41,10 @@ Registrants will access workshop materials using a shared space on RStudio.cloud
   4. SQL: `sql-example1.Rmd` and `sql-example2.Rmd`
   5. R Style: [Google style guide](https://google.github.io/styleguide/Rguide.xml), [Hadley style guide](http://adv-r.had.co.nz/Style.html), Randy's [suggestions](style.md)
   6. Watch Hadley code: https://www.youtube.com/watch?v=go5Au01Jrvs&index=11&list=WL&t=0s
+  7. Discussion: how to teach this material?
+  8. Q&A review
 
-- noon-1:00pm lunch
+- noon-1:00pm lunch (see [suggestion](lunch.md))
 
 - 1:00-2:15pm
   1. shiny `shiny.R`: please run the app then add another tab that displays summary statistics for the `displayenroll` variable by `subject`: `favstats(displayenroll ~ subject, data = courses())`
