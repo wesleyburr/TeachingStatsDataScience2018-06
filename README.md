@@ -24,7 +24,7 @@ Registrants will access workshop materials using a shared space on RStudio.cloud
 
 - 9:00-10:15am
 
-  0. introduction and setup: please connect to the RStudio.cloud server ssc2018rstudio (see [cloud.md](cloud.md)
+  0. introduction and setup: please connect to the RStudio.cloud server ssc2018rstudio (see [cloud.md](cloud.md))
   1. apology: US centric datasets
   2. `mplot(HELPrct)`
   3. [R Markdown](https://prezi.com/vq6l5yqpnqma/intro-to-r-markdown-cvc-2015)
@@ -42,7 +42,7 @@ Registrants will access workshop materials using a shared space on RStudio.cloud
   4. SQL: `sql-example1.Rmd` and `sql-example2.Rmd`
   5. R Style: [Google style guide](https://google.github.io/styleguide/Rguide.xml), [Hadley style guide](http://adv-r.had.co.nz/Style.html), Randy's [suggestions](style.md)
   6. Watch Hadley code: https://www.youtube.com/watch?v=go5Au01Jrvs&index=11&list=WL&t=0s
-  7. Discussion: how to teach this material?
+  7. Discussion: how to teach this material?  See [here](teach.md)
   8. Q&A review
 
 - noon-1:00pm lunch (see [suggestion](lunch.md))
