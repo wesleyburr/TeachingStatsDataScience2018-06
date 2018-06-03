@@ -36,7 +36,7 @@ Registrants will access workshop materials using a shared space on RStudio.cloud
 
 - 10:30-noon
   1. autotrader.ca: please download https://nhorton.people.amherst.edu/cars.csv and scrape data (see instructions at cars.com/carshandout.pdf)
-  2. An [overview](https://github.com/Amherst-Statistics/TeachingStatsDataScience2018-06/SSC2018.pdf)
+  2. An [overview](https://github.com/Amherst-Statistics/TeachingStatsDataScience2018-06/blob/master/SSC2018.pdf)
   3. dplyr + tidyverse: (see [why tidyverse](mdfiles/tidyverse.md)) https://dtkaplan.shinyapps.io/Five_data_verbs/#section-pipe-notation plus 
 `dplyr-tutorial.Rmd` and `restaurants-example.Rmd`
   4. SQL: `sql-example1.Rmd` and `sql-example2.Rmd`
