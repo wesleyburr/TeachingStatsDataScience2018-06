@@ -1,4 +1,4 @@
-Why the tidyverse?
+## Why the tidyverse?
 
 See http://sas-and-r.blogspot.com/2017/07/options-for-teaching-r-to-beginners.html
 
