@@ -24,7 +24,7 @@ Registrants will access workshop materials using a shared space on RStudio.cloud
 
 - 9:00-10:15am
 
-  0. introduction and setup: please connect to the RStudio.cloud server ssc2018rstudio (see [cloud.md](mdfiles/cloud.md))
+  0. introduction and setup: please connect to the RStudio.cloud server ssc2018rstudio (see [cloud.md](mdfiles/cloud.md)) and survey [results](mdfiles/survey.md)
   1. apology: US centric datasets
   2. `mplot(HELPrct)`
   3. [R Markdown](https://prezi.com/vq6l5yqpnqma/intro-to-r-markdown-cvc-2015)
@@ -125,4 +125,4 @@ We’ll use this Google Doc to record your questions and comments and to provide
 - https://www.causeweb.org/cause/ecots/ecots16/breakouts/7
 - https://rstudio.cloud
 
-Last updated June 2, 2018
+Last updated June 3, 2018
