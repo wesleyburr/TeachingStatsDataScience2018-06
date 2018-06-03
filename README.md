@@ -42,7 +42,8 @@ Registrants will access workshop materials using a shared space on RStudio.cloud
   4. SQL: `sql-example1.Rmd` and `sql-example2.Rmd`
   5. R Style: [Google style guide](https://google.github.io/styleguide/Rguide.xml), [Hadley style guide](http://adv-r.had.co.nz/Style.html), Randy's [suggestions](style.md)
   6. Watch Hadley code: https://www.youtube.com/watch?v=go5Au01Jrvs&index=11&list=WL&t=0s
-  7. Discussion: how to teach this material?  See [here](teach.md)
+  7. Discussion: why RStudio?  See [here](rstudio.md)
+  8. Discussion: how to teach this material?  See [here](teach.md)
   8. Q&A review
 
 - noon-1:00pm lunch (see [suggestion](lunch.md))
