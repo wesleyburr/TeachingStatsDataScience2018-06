@@ -2,6 +2,8 @@ We will be using a shared RStudio.cloud server.
 
 Please use the link provided on the board to COPY my RStudio.cloud space.
 
+![](images/login0.png)
+
 You can use your Google or Github logins (or create a free account)
 
 ![](images/login.png)
