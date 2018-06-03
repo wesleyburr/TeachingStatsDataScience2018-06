@@ -24,7 +24,7 @@ Registrants will access workshop materials using a shared space on RStudio.cloud
 
 - 9:00-10:15am
 
-  0. introduction and setup: please connect to the RStudio.cloud server ssc2018rstudio (see [cloud.md](mdfiles/cloud.md))
+  0. introduction and setup: please connect to the RStudio.cloud server ssc2018rstudio (see [cloud.md](mdfiles/cloud.md)) and survey [results](mdfiles/survey.md)
   1. apology: US centric datasets
   2. `mplot(HELPrct)`
   3. [R Markdown](https://prezi.com/vq6l5yqpnqma/intro-to-r-markdown-cvc-2015)
@@ -36,7 +36,7 @@ Registrants will access workshop materials using a shared space on RStudio.cloud
 
 - 10:30-noon
   1. autotrader.ca: please download https://nhorton.people.amherst.edu/cars.csv and scrape data (see instructions at cars.com/carshandout.pdf)
-  2. An [overview](https://github.com/Amherst-Statistics/TeachingStatsDataScience2018-06/SSC2018.pdf)
+  2. An [overview](https://github.com/Amherst-Statistics/TeachingStatsDataScience2018-06/blob/master/SSC2018.pdf)
   3. dplyr + tidyverse: (see [why tidyverse](mdfiles/tidyverse.md)) https://dtkaplan.shinyapps.io/Five_data_verbs/#section-pipe-notation plus 
 `dplyr-tutorial.Rmd` and `restaurants-example.Rmd`
   4. SQL: `sql-example1.Rmd` and `sql-example2.Rmd`
@@ -50,7 +50,7 @@ Registrants will access workshop materials using a shared space on RStudio.cloud
 
 - 1:00-2:15pm
   1. shiny `shiny.R`: please run the app then add another tab that displays summary statistics for the `displayenroll` variable by `subject`: `favstats(displayenroll ~ subject, data = courses())`
-  2. Shiny gallery: https://shiny.rstudio.com/gallery/
+  2. Shiny gallery: https://shiny.rstudio.com/gallery/ and examples https://r.amherst.edu/apps/nhorton
   2. network analysis: `igraph1.Rmd` and `igraph2.Rmd`
   3. leaflet: `leaflet.Rmd`
 
@@ -125,4 +125,4 @@ We’ll use this Google Doc to record your questions and comments and to provide
 - https://www.causeweb.org/cause/ecots/ecots16/breakouts/7
 - https://rstudio.cloud
 
-Last updated June 2, 2018
+Last updated June 3, 2018
