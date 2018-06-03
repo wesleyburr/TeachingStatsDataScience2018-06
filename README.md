@@ -50,7 +50,7 @@ Registrants will access workshop materials using a shared space on RStudio.cloud
 
 - 1:00-2:15pm
   1. shiny `shiny.R`: please run the app then add another tab that displays summary statistics for the `displayenroll` variable by `subject`: `favstats(displayenroll ~ subject, data = courses())`
-  2. Shiny gallery: https://shiny.rstudio.com/gallery/
+  2. Shiny gallery: https://shiny.rstudio.com/gallery/ and examples https://r.amherst.edu/apps/nhorton
   2. network analysis: `igraph1.Rmd` and `igraph2.Rmd`
   3. leaflet: `leaflet.Rmd`
 
