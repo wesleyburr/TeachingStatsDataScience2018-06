@@ -24,7 +24,7 @@ Registrants will access workshop materials using a shared space on RStudio.cloud
 
 - 9:00-10:15am
 
-  0. introduction and setup: please connect to the RStudio.cloud server ssc2018rstudio (see [cloud.md](cloud.md))
+  0. introduction and setup: please connect to the RStudio.cloud server ssc2018rstudio (see [cloud.md](mdfiles/cloud.md))
   1. apology: US centric datasets
   2. `mplot(HELPrct)`
   3. [R Markdown](https://prezi.com/vq6l5yqpnqma/intro-to-r-markdown-cvc-2015)
@@ -37,16 +37,16 @@ Registrants will access workshop materials using a shared space on RStudio.cloud
 - 10:30-noon
   1. autotrader.ca: please download https://nhorton.people.amherst.edu/cars.csv and scrape data (see instructions at cars.com/carshandout.pdf)
   2. An [overview](https://github.com/Amherst-Statistics/TeachingStatsDataScience2018-06/SSC2018.pdf)
-  3. dplyr + tidyverse: (see [why tidyverse](tidyverse.md)) https://dtkaplan.shinyapps.io/Five_data_verbs/#section-pipe-notation plus 
+  3. dplyr + tidyverse: (see [why tidyverse](mdfiles/tidyverse.md)) https://dtkaplan.shinyapps.io/Five_data_verbs/#section-pipe-notation plus 
 `dplyr-tutorial.Rmd` and `restaurants-example.Rmd`
   4. SQL: `sql-example1.Rmd` and `sql-example2.Rmd`
-  5. R Style: [Google style guide](https://google.github.io/styleguide/Rguide.xml), [Hadley style guide](http://adv-r.had.co.nz/Style.html), Randy's [suggestions](style.md)
+  5. R Style: [Google style guide](https://google.github.io/styleguide/Rguide.xml), [Hadley style guide](http://adv-r.had.co.nz/Style.html), Randy's [suggestions](mdfiles/style.md)
   6. Watch Hadley code: https://www.youtube.com/watch?v=go5Au01Jrvs&index=11&list=WL&t=0s
-  7. Discussion: why RStudio?  See [here](rstudio.md)
-  8. Discussion: how to teach this material?  See [here](teach.md)
+  7. Discussion: why RStudio?  See [here](mdfiles/rstudio.md)
+  8. Discussion: how to teach this material?  See [here](mdfiles/teach.md)
   8. Q&A review
 
-- noon-1:00pm lunch (see [suggestion](lunch.md))
+- noon-1:00pm lunch (see [suggestion](mdfiles/lunch.md))
 
 - 1:00-2:15pm
   1. shiny `shiny.R`: please run the app then add another tab that displays summary statistics for the `displayenroll` variable by `subject`: `favstats(displayenroll ~ subject, data = courses())`
